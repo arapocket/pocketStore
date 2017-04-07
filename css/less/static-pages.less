@@ -1,0 +1,86 @@
+/*---
+| STATIC PAGES
+---*/
+
+.static-page {
+	.box;
+	background-color: @white;
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+
+	> .row {
+		> .col-sm-3 {
+			@media (min-width: 767px) {
+				padding-right: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				background-color: @lighter_grey;
+				border-right: 1px solid darken(@light_grey, 5%);
+			}
+		}
+		
+		> .col-sm-9 {
+			min-height: 600px;
+		}
+	}
+	
+	
+	.content {
+		padding: 30px 60px 30px 30px;
+		min-height: 260px;
+		
+		@media (max-width: 767px) {
+			padding: 30px 60px;
+		}
+		
+		.row,
+		.row {
+			margin-bottom: 20px;
+		}
+		
+		ul ul,
+		ol ol,
+		ul ol,
+		ol ul {
+			padding-left: 40px;
+		}
+	}
+}
+
+
+/*---
+| ABOUT US
+---*/
+
+.jumbotron {
+	border: 1px solid darken(@light_grey, 5%);
+	background-color: @light_grey;
+	.border-radius(@radius);
+}
+
+
+/*---
+| GRIDS
+---*/
+
+.show-grid [class*="col-sm-"] {
+	background-color: @light_grey;
+	text-align: center;
+	font-size: 12px;
+	line-height: 40px;
+	border: 1px solid #ccc;
+	.border-radius(@radius);
+}
+
+
+/*---
+| BUTTONS STYLES
+---*/
+
+@media (max-width: 767px) {
+	.button-styles pre {
+		margin-top: 20px;
+	}
+}

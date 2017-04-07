@@ -1,0 +1,166 @@
+﻿<%@ Master Language="VB" CodeFile="MainLayout.master.vb" Inherits="MainLayout" %>
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js">
+<head>
+<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="La Boutique HTML v10.0" />
+<title>Home</title>
+<link rel="stylesheet" href="./css/bootstrap.min.css" />
+<link rel="stylesheet" href="./css/font-awesome.min.css" />
+<link rel="stylesheet" href="./css/flexslider.css" />
+<link rel="stylesheet" href="./js/tfingi-megamenu/tfingi-megamenu-frontend.css" />
+<link rel="stylesheet" href="./css/color-schemes/pomegranate.css" id="color_scheme" />
+<!--   his CSS  -->
+<link href="css/main.css" rel="stylesheet">
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=7; IE=8" />-->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="http://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Shadows+Into+Light" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <form id="form1" runat="server">
+<div class="wrapper container">
+		
+
+<!-- Search bar and Cart Button (Row) -->
+<div class="header row">
+<!-- Pocket Store div -->
+        <div class =" col-sm-3 ara1 "><h1>Pocket Store</h1></div> 
+<!-- Search div -->
+        <div class="col-sm-offset-1 search col-sm-3">
+            <div class="qs_s">
+<form method="post" action="search.html"><input type="text" name="query" id="query" placeholder="Search&hellip;" autocomplete="off" value=""></form>
+            </div>
+        </div>
+<!-- Cart div -->
+        <div class="mini-cart col-sm-offset-4 col-sm-1 ">
+                    <a href="ViewCart.aspx" title="Go to cart &rarr;">
+                        <span>3</span>
+                    </a>									
+        </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navigation">     
+<div class="row">
+<div class="col-xs-12">
+
+<!-- button that only shows up in mobile view -->
+<a href="#" class="main-menu-button">Navigation</a>
+<!-- Menu Bar -->
+<div class="megamenu_container menu-main-navigation-container">
+        <ul id="menu-main-navigation" class="main-menu">
+        
+<!-- I. Home-->
+            <li class="menu-item-home menu-item-has-children megamenu-parent " data-width=""><a href="Default.aspx">Home</a></li>
+<!-- II. Shop-->                  
+            <li class="menu-item-has-children">
+            	<a href="category.html">Shop</a>
+                 <ul role="menu" class="sub-menu">
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PocketStoreConnectionString %>" SelectCommand="SELECT * FROM [Category] WHERE Parent=0"></asp:SqlDataSource>
+                    <asp:DataList ID="DataList2" runat="server" DataSourceID="DSCategory"
+                        RepeatDirection="Vertical">
+                        <ItemTemplate>
+				         <li><a href="SubCategory.aspx?MainCatId=<%# Eval("CategoryID")%>&MainCatName=<%# Eval("CategoryName")%>"><%# Trim(Eval("CategoryName"))%></a></li>                    
+                        </ItemTemplate>
+                    </asp:DataList>
+                </ul>
+            </li>
+<!-- III.  Cart-->               
+            <li ><a href="cart.html">Cart</a></li>
+<!-- IV.  Contact Us-->              
+            <li class="menu-item-has-children megamenu-parent" data-width="400">
+                <a href="contact-us.html">Contact Us</a>
+                <ul class="sub-menu">
+                    <li class="megamenu-column"><a href="#MegaMenuColumn">Mega Menu Column</a></li>
+                    <li class="megamenu-heading"><a href="#MegaMenuHeading">Contact Us</a></li>
+                    <li class="megamenu-content">
+                        <div class="wpcf7">
+                            <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
+                                <label>Your Name (required)</label>
+                                <input type="text" name="your-name" value="" size="40" aria-required="true" />
+                                <label>Your Email (required)</label>
+                                <input type="email" name="your-email" value="" size="40"aria-required="true" />
+                                <label>Subject</label>
+                                <input type="text" name="your-subject" value="" size="40" />
+                                <label>Your Message</label>
+                                <textarea name="your-message" cols="40" rows="10" ></textarea>
+
+                                <input type="submit" value="Send" class="btn btn-primary" />
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </li>            
+        </ul>
+</div>    
+
+</div>
+</div>        
+</nav>
+
+<!-- ASP ContentPlaceHolder1 -->
+<div class="row">
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+</div>
+
+<!-- Footer -->
+<div class ="footer row" >
+<!-- I. Account -->                              
+<div class="col-sm-6 account">
+<h6>My account</h6>
+    <ul class="links">								
+    <li>
+    <a href="login-register.html" title="Login / Register">Login / Register</a>									
+    </li>
+    </ul>
+</div>
+<!-- II. Categories -->   
+<div class="col-sm-6 categories">
+<h6>Shop</h6>
+        <ul role="menu" >
+            <asp:SqlDataSource ID="DSCategory" runat="server" ConnectionString="<%$ ConnectionStrings:PocketStoreConnectionString %>" SelectCommand="SELECT * FROM [Category] WHERE Parent=0"></asp:SqlDataSource>
+            <asp:DataList ID="dlMainCategory" runat="server" DataSourceID="DSCategory"
+                RepeatDirection="Vertical">
+                <ItemTemplate>
+                    <li><a href="SubCategory.aspx?MainCatId=<%# Eval("CategoryID")%>"><%# Trim(Eval("CategoryName"))%></a></li>
+                </ItemTemplate>
+            </asp:DataList>
+        </ul>
+</div>
+
+</div>
+
+			
+</div>
+		
+<!-- JAVASCRIPT -->
+
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+
+<script src="./js/jquery-migrate-1.2.1.min.js"></script>
+<script src="./js/isotope.pkgd.min.js"></script>
+<script src="./js/imagesloaded.pkgd.min.js"></script>
+<script src="./js/jquery.flexslider.js"></script>
+<script src="./js/jquery-ui-1.10.2.custom.js"></script>
+<script src="./js/jquery.easing.min.js"></script>
+<script src="./js/jquery.elevatezoom.js"></script>
+<script src="./js/jquery.sharrre-1.3.5.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/la_boutique.js"></script>
+<script src="./js/tfingi-megamenu/tfingi-megamenu-frontend.js"></script>
+<!-- END JAVASCRIPTZ -->
+	</form>
+	</body>
+</html>

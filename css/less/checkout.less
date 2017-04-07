@@ -1,0 +1,67 @@
+/*---
+| CHECKOUT PAGES
+---*/
+
+.checkout {
+	
+	/* tabs on all checkout pages */
+	
+	.nav-tabs {
+		margin: -20px -20px 20px;
+		
+		li {
+			width: 20%;
+			
+			@media (max-width: 480px) {
+				width: 33.33%;
+			}
+			
+			> div {
+				.opacity(0.5);
+			}
+		}
+	}
+	
+}
+
+
+/* price list on checkout pages */
+
+.price-list {
+	margin-bottom: -20px;
+	li {
+		.extend;
+		border-bottom: 1px dotted @light_grey;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		list-style: none;
+		font-size: 13px;
+		position: relative;
+		
+		strong {
+			position: absolute;
+			right: 20px;
+		}
+		
+		em {
+			display: block;
+			margin-top: 10px;
+		}
+	}
+	
+	li.important {
+		font-size: 14px;
+		color: @accent;
+	}
+}
+
+
+/* order history page */
+
+.orders,
+.order {
+	tbody {
+		line-height: 28px;
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,255 @@
+/*---
+| HOME PAGE
+---*/
+
+.promos {
+	margin-bottom: 60px;
+	
+	.box {
+		color: lighten(@black, 30%);
+	}
+	
+	.hgroup.title {
+		border-bottom: 0;
+		padding-bottom: 0;
+		margin-bottom: 20px;
+	}
+	
+	p {
+		margin-bottom: 0;
+		font-size: 12px;
+		line-height: 18px;
+	}
+	
+	img {
+		float: right;
+		margin: 0 0 10px 10px;
+	}
+	
+	.low-price img {
+		margin-top: -25px;
+	}
+}
+
+
+/*---
+| SLIDER
+---*/
+
+.flexslider {
+	margin: 0;
+	padding: 0;
+	
+	/* Flexslider will change this to the correct height once it has finished loading */
+	height: 100px;
+	@media (min-width: 768px) { height: 200px; }
+	@media (min-width: 992px) { height: 300px; }
+	@media (min-width: 1200px) { height: 400px; }
+}
+
+.flexslider .slides > li {
+	display: none;
+	-webkit-backface-visibility: hidden;
+}
+
+.flexslider .slides img {
+	width: 100%;
+	display: block;
+}
+
+.flex-pauseplay span {
+	text-transform: capitalize;
+}
+
+.slides:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+} 
+
+html[xmlns] .slides {
+	display: block;
+} 
+
+* html .slides {
+	height: 1%;
+}
+
+.no-js .slides > li:first-child {
+	display: block;
+}
+
+.flexslider {
+	margin: -40px 0 80px;
+	position: relative;
+	z-index: 10;
+	border: none;
+	background-color: transparent;
+	.box-shadow(0 1px 2px fadeout(@black, 90%));
+	
+	.slides {
+		li {
+			list-style: none;
+		}
+	}
+	
+	.flex-direction-nav {
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		margin: -50px 0 0;
+		.clearfix();
+					
+		a {
+			display: block;
+			width: 55px;
+			height: 102px;
+			text-align: left;
+			overflow: hidden;
+			text-indent: -9999px;
+			.transition(~"all 200ms ease-in-out");
+			.opacity(0.5);
+			
+			&.flex-prev {
+				background: url('../../img/larr.png') no-repeat center center;
+			}
+			
+			&.flex-next {
+				background: url('../../img/rarr.png') no-repeat center center;
+			}
+			
+			&:before {
+				content: '';
+			}
+			&:hover {
+				.opacity(1);
+			}
+			&:focus, &:active {
+				outline: 0 none;
+			}
+		
+		}
+		
+	}
+	
+	&:hover .flex-direction-nav .flex-prev,
+	.flex-direction-nav .flex-prev {
+		left: 20px;
+	}
+	
+	&:hover .flex-direction-nav .flex-next,
+	.flex-direction-nav .flex-next {
+		right: 20px;
+	}
+	
+	.flex-control-nav {
+		bottom: 15px;
+		z-index: 20;
+		
+		@media (max-width: 479px) {
+			display: none;
+		}
+		
+		li {
+			list-style: none;
+			display: inline-block;
+			margin: 0 5px;
+		}
+		
+		a {
+			text-decoration: none;
+			display: block;
+			width: 12px; height: 12px;
+			background-color: transparent;
+			text-indent: -9999px;
+			border: 2px solid @white;
+			cursor: pointer;
+			.box-shadow(0 1px 2px fadeout(@black, 50%));
+			.box-sizing(border-box);
+			.border-radius(9999px);
+			.background-clip(border-box);
+			
+			&:hover {
+				background-color: fadeout(@white, 50%);
+			}
+		}
+		
+		a.flex-active {
+			background-color: @white;
+		}
+	}
+	
+	.flex-progress {
+		bottom: 0;
+		position: absolute;
+		width: 100%;
+		z-index: 20;
+		background-color: fadeout(@black, 80%);
+		
+		span {
+			display: block;
+			height: 5px;
+			background-color: @accent;
+			width: 0%;
+		}
+	}
+	
+}
+
+.caption {
+	position: absolute;
+	top: 50%; bottom: auto;
+	width: 100%;
+	margin-top: -85px;
+	padding: 0;
+	background-color: transparent;
+	overflow: visible;
+	font-family: inherit !important;
+	.opacity(1);
+	
+	@media (min-width: 768px) and (max-width: 979px) {
+		margin-top: -75px;
+	}
+	
+	@media (max-width: 767px) {
+		display: none !important;
+		.opacity(0) !important;
+	}
+	
+	h3 {
+		display: inline-block;
+		font-weight: 700;
+		padding: 10px 20px;
+		background-color: @accent;
+		color: @white;
+		margin-bottom: 0;
+		line-height: 54px;
+		
+		@media (min-width: 768px) and (max-width: 979px) {
+			font-size: 24px;
+			line-height: 36px;
+		}
+	}
+	
+	p {
+		display: inline-block;
+		padding: 10px 20px;
+		background-color: fadeout(@black, 20%);
+		color: @white;
+		font-size: 16px; line-height: 24px;
+		margin-bottom: 20px;
+		
+		@media (min-width: 768px) and (max-width: 979px) {
+			font-size: 12px;
+			line-height: 18px;
+		}
+	}
+	
+	.btn {
+		display: inline-block !important;
+		border-bottom: none !important;
+	}
+}

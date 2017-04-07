@@ -1,0 +1,166 @@
+/*---
+| FOOTER
+---*/
+
+.footer {
+	position: relative;
+	z-index: 50;
+	background-color: @white;
+	padding: 40px 0;
+	font-size: 13px;
+	color: lighten(@black, 20%);
+	.box-shadow(0 -1px 2px fadeout(@black, 80%));
+	
+	h6 {
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: uppercase;
+		margin: 0 0 20px;
+		color: @black;
+	}
+	
+	.links {
+		margin: 0;
+		
+		@media (max-width: 767px) {
+			margin-bottom: 40px;
+		}
+		
+		li {
+			list-style: none;
+		}
+		
+		a {
+			color: lighten(@black, 20%);
+			text-decoration: none;
+			
+			&:hover, &:focus {
+				color: @accent;
+			}
+		}
+	}
+	
+	.confidence {
+		img {
+			display: block;
+			margin: 20px 0;
+		}
+	}
+	
+	.list-chevron.links {
+		li {
+			margin-bottom: 10px;
+		}
+		
+		small {
+			font-style: italic;
+			color: lighten(@black, 25%);
+			font-size: 11px;
+			margin-left: 12px;
+		}
+	}
+	
+	.twitter {
+		font-size: 12px;
+		line-height: 18px;
+		
+		.tweet_list {
+			margin: 0;
+			
+			li {
+				list-style: none;
+				border-top: 1px solid @light_grey;
+				padding-top: 20px;
+				margin-top: 20px;
+				.clearfix();
+				
+				.avatar {
+					float: left;
+					width: 10%;
+					margin-right: 5%;
+				}
+				
+				.text {
+					width: 85%;
+					float: left;
+					
+					a {
+						text-decoration: none;
+					}
+					
+					.tweet_text,
+					.tweet_time {
+						display: block;
+					}
+					
+					.tweet_time {
+						margin-top: 10px;
+						font-size: 11px;
+						font-style: italic;
+						
+						a {
+							color: lighten(@black, 40%);
+							text-decoration: none;
+							
+							&:hover, &:focus {
+								color: @accent;
+							}
+						}
+					}
+				}
+			}
+			
+			li.tweet_first {
+				border-top: none;
+				margin-top: 0;
+				padding-top: 0;
+			}
+		}
+	}
+	
+	
+	.newsletter {
+		form {
+			margin-bottom: 20px;
+		}
+		
+		.input-group {
+			margin-bottom: 0;
+		}
+		
+		p {
+			font-size: 12px;
+			line-height: 18px;
+			color: lighten(@black, 30%);
+			font-style: italic;
+		}
+	}
+	
+}
+
+
+/*---
+| CREDITS BAR
+---*/
+
+.credits {
+	background-color: @black;
+	padding: 10px 0;
+	color: lighten(@black, 30%);
+	font-size: 12px;
+	line-height: 18px;
+	
+	p {
+		margin-bottom: 0;
+	}
+	
+	a {
+		color: lighten(@black, 40%);
+		text-decoration: none;
+		.transition(~"all 200ms ease-in-out");
+		
+		&:hover {
+			color: lighten(@black, 50%);
+		}
+	}
+}
